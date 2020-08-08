@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * 面向对象有三大特性: 封装\继承\多态
+     * 继承: 1.减少重复的代码 2.多态的前提(鸭子类型)
+     */
+    // 类的继承: 子类和父类中有相同的属性或方法时,可以直接将相同的属性或方法定义在父类中,子类来继承父类中的属性
+    // extends: 继承关键字,继承父类中的属性或方法,必须配合super关键字使用
+    // super: 调用父类中的构造函数(方法),实现继承来自父类中属性或方法  
+
+    class Person {
+      constructor(name, age) {
+        this.name = name
+        this.age = age
+      }
+
+      run() {
+        console.log(this.name, this.age, 'run')
+      }
+    }
+
+    class Student extends Person {
+      constructor(name, age, id) {
+        // super() 调用父类构造方法,传递当前实例的参数
+        super(name, age)
+        this.id = id
+      }
+    }
+
+    const stu = new Student('why', 18, 1001)
+    console.log(stu.id)
+    stu.run()
+
+
+
+
+
+    // class Person {
+    //   constructor(name, age) {
+    //     this.name = name
+    //     this.age = age
+    //   }
+
+    //   run() {
+    //     console.log(this.name,this.age,'run')
+    //   }
+    // }
+
+    // class Student {
+    //   constructor(name, age, id) {
+    //     this.name = name
+    //     this.age = age
+    //     this.id = id
+    //   }
+
+    //   run() {
+    //     console.log(this.name,this.age,'run')
+    //   }
+    // }
+  </script>
+</body>
+
+</html>

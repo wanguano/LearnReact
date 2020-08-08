@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- 1.引入依赖 -->
+  <script src="../react/react.development.js"></script>
+  <script src="../react/react-dom.development.js"></script>
+  <script src="../react/babel.min.js"></script>
+  <!-- 2.开始开发 -->
+  <script type="text/babel">
+    class App extends React.Component{
+      constructor() {
+        super()
+        
+        this.state = {
+         movies: ['哈王', '项籍船员', '海王', '相机川渝']
+        }
+
+      }
+
+      render() {
+        return (
+          <div>
+            <button onClick={this.btnClick}>获取event对象</button>
+            <ul>
+              {
+                this.state.movies.map((item, index) => {
+                  return (
+                    <li className={item} 
+                    onClick={e => { this.liClick(index, item, e) }}
+                    title={item}
+                    >
+                    {item}
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+        )
+      }
+
+      btnClick(e) {
+        console.log(e)
+      }
+
+      liClick(index, item, event) {
+        console.log(index, item, event)
+      }
+
+    }
+    ReactDOM.render(<App/>, document.getElementById('app'))
+
+    //#region 验证一:通过,箭头函数永远不会绑定this 
+    /*  箭头函数: 即使使用call或apply绑定this了,箭头函数绑定的this不会生效,箭头函数永远不会绑定this */
+    // let sum = (a, b) => {console.log(a,b,this)}
+    // let sum = function (a,b) {
+    //   console.log(a,b,this)
+    // }
+    // const obj = {name: 'kobe', age: 18}
+
+    // sum.call(obj, 1,2)
+    //#endregion
+
+    //#region 验证二:通过,bind绑定的this优先级比apply或call要高
+    // bind绑定的this优先级比apply或call要高,即使是后面通过apply或call绑定this
+    let sum = function (a,b) {
+      console.log(a,b,this)
+    }
+    const obj1 = {name: 'kobe', age: 18}
+    const obj2 = {name: 'yifan', age: 20}
+
+    
+    sum = sum.bind(obj1)
+    sum.call(obj2, 1,2)
+
+    //#endregion
+
+  </script>
+</body>
+
+</html>

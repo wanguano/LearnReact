@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <h2>{{message}}</h2>
+    <button @click="edit">改变文本</button>
+    
+  </div>
+  <script src='https://cdn.bootcss.com/vue/2.6.11/vue.js'></script>
+  <script>
+
+    new Vue({
+      data: {
+        message: 'hello world'
+      },
+      methods: {
+        edit() {
+          this.message = 'hello react'
+        }
+      },
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
