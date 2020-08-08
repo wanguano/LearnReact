@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <body>
+    <div id="app"></div>
+    <!-- 1.引入依赖 -->
+    <script src="../react/react.development.js"></script>
+    <script src="../react/react-dom.development.js"></script>
+    <script src="../react/babel.min.js"></script>
+    <!-- 2.开始开发 -->
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
 
-<body>
-  <div id="app"></div>
-  <!-- 1.引入依赖 -->
-  <script src="../react/react.development.js"></script>
-  <script src="../react/react-dom.development.js"></script>
-  <script src="../react/babel.min.js"></script>
-  <!-- 2.开始开发 -->
-  <script type="text/babel">
-    class App extends React.Component{
-      constructor() {
-        super()
-        
-        this.state = {
-         title: '我是title属性',
-         imgUrl: 'http://p2.music.126.net/L8IDEWMk_6vyT0asSkPgXw==/109951163990535633.jpg',
-         url: 'http://www.baidu.com',
-         active: false,
-         red: 'red'
+          this.state = {
+            title: "我是title属性",
+            imgUrl:
+              "http://p2.music.126.net/L8IDEWMk_6vyT0asSkPgXw==/109951163990535633.jpg",
+            url: "http://www.baidu.com",
+            active: false,
+            red: "red",
+          };
+        }
+
+        render() {
+          const { title, imgUrl, url, active, red } = this.state;
+          return (
+            <div>
+              {/* 1.JSX绑定普通属性 */}
+              <h2 title={title}>绑定title属性</h2>
+              <img src={imgUrl} alt="" />
+              <a href={url} target="_bank">
+                百度一下
+              </a>
+
+              {/* 2.绑定class */}
+              <div className="aa">在JSX中使用className来绑定class</div>
+              <div className={active ? "active" : undefined}>动态绑定class</div>
+
+              {/* 3.绑定style */}
+              <div style={{ fontSize: "50px", color: red }}>
+                在JSX中绑定style注意里层需要再包裹一对大括号
+              </div>
+            </div>
+          );
+        }
+
+        getSizeImage(url, size) {
+          return url + `?param=${size}x${size}`;
         }
       }
-
-      render() {
-        const {title, imgUrl, url, active, red} = this.state
-        return (
-          <div>
-
-            {/* 1.JSX绑定普通属性 */}
-            <h2 title={title}>绑定title属性</h2>
-            <img src={imgUrl} alt="" />
-            <a href={url} target="_bank">百度一下</a>
-
-            {/* 2.绑定class */}
-            <div className="aa">在JSX中使用className来绑定class</div>
-            <div className={active?'active':undefined}>动态绑定class</div>
-
-            {/* 3.绑定style */}
-            <div style={{'fontSize': '50px', color: red}}>在JSX中绑定style注意里层需要再包裹一对大括号</div>
-
-          </div>
-        )
-      }
-    
-      getSizeImage(url,size) {
-        return url + `?param=${size}x${size}`
-      }
-    
-    }
-    ReactDOM.render(<App/>, document.getElementById('app'))
-  </script>
-</body>
-
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
 </html>

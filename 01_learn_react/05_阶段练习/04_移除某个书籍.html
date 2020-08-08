@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid #eee;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #eee;
+        padding: 10px 16px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #ccc;
+      }
+
+      .price {
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <!-- 1.引入依赖 -->
+    <script src="../react/react.development.js"></script>
+    <script src="../react/react-dom.development.js"></script>
+    <script src="../react/babel.min.js"></script>
+    <script src="./format-utils.js"></script>
+    <!-- 2.开始开发 -->
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            books: [
+              {
+                id: 1,
+                name: "《算法导论》",
+                date: "2006-9",
+                price: 85.0,
+                count: 1,
+              },
+              {
+                id: 2,
+                name: "《UNIX编程艺术》",
+                date: "2006-2",
+                price: 59.0,
+                count: 1,
+              },
+              {
+                id: 3,
+                name: "《编程珠玑》",
+                date: "2008-10",
+                price: 39.0,
+                count: 1,
+              },
+              {
+                id: 4,
+                name: "《代码大全》",
+                date: "2006-3",
+                price: 128.0,
+                count: 1,
+              },
+            ],
+          }
+        }
+
+        renderBooks() {
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.books.map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.date}</td>
+                        <td> {formatPrice(item.price)}</td>
+                        <td>
+                          <button
+                            disabled={item.count <= 1}
+                            onClick={e => this.changeCount(index, -1)}
+                          >
+                            -
+                          </button>
+                          <span className="price">{item.count}</span>
+                          <button onClick={e => this.changeCount(index, 1)}>
+                            +
+                          </button>
+                        </td>
+                        <td>
+                          <button onClick={e => this.delBook(index)}>
+                            移除
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+              {/* 1.这里的this是当前组件对象的,只有函数不是你调用的时候this才可能是undefined
+                2.比如onClick={this.btnClick},这里你并没有调用该函数,所以this是React进行绑定的 */}
+              <h2>总价格: {this.getTotalPrice()}</h2>
+            </div>
+          )
+        }
+
+        renderEmpty() {
+          return <h2>购物车🛒为空</h2>
+        }
+
+        render() {
+          return this.state.books.length >= 1
+            ? this.renderBooks()
+            : this.renderEmpty()
+        }
+
+        getTotalPrice() {
+          // 1.使用for循环
+          // let totalPrice = 0
+          // for (const item of this.state.books) {
+          //   totalPrice = item.count * item.price
+          // }
+
+          // 2.使用高阶函数: reduce(归纳)/map/filter
+          let totalPrice = this.state.books.reduce((preValue, item) => {
+            return (preValue += item.price * item.count)
+          }, 0)
+          return formatPrice(totalPrice)
+        }
+
+        delBook(index) {
+          // React中设计原则: state中的数据的不可变性1
+          this.setState({
+            books: this.state.books.filter((item, indey) => index !== indey),
+          })
+        }
+
+        changeCount(index, count) {
+          // this.state.books[index].count += 1 违反了React单项数据流
+          // const newBooks = this.state.books
+          const newBooks = [...this.state.books] // 脱裤子放屁跟上行代码一样
+          console.log(count)
+          newBooks[index].count += count
+          this.setState({
+            books: newBooks,
+          })
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById("app"))
+    </script>
+  </body>
+</html>
