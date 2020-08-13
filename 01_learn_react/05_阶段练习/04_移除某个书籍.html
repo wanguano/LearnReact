@@ -44,29 +44,29 @@
             books: [
               {
                 id: 1,
-                name: "《算法导论》",
-                date: "2006-9",
+                name: '《算法导论》',
+                date: '2006-9',
                 price: 85.0,
                 count: 1,
               },
               {
                 id: 2,
-                name: "《UNIX编程艺术》",
-                date: "2006-2",
+                name: '《UNIX编程艺术》',
+                date: '2006-2',
                 price: 59.0,
                 count: 1,
               },
               {
                 id: 3,
-                name: "《编程珠玑》",
-                date: "2008-10",
+                name: '《编程珠玑》',
+                date: '2008-10',
                 price: 39.0,
                 count: 1,
               },
               {
                 id: 4,
-                name: "《代码大全》",
-                date: "2006-3",
+                name: '《代码大全》',
+                date: '2006-3',
                 price: 128.0,
                 count: 1,
               },
@@ -159,7 +159,7 @@
         changeCount(index, count) {
           // this.state.books[index].count += 1 违反了React单项数据流
           // const newBooks = this.state.books
-          const newBooks = [...this.state.books] // 脱裤子放屁跟上行代码一样
+          const newBooks = [...this.state.books] //跟上行代码不一样: 不一样因为上面那行是进行了引用地址,你修改newBooks本质上是修改引用,而下面那行,是创建了新的引用地址,没有进行修改state
           console.log(count)
           newBooks[index].count += count
           this.setState({
@@ -167,7 +167,7 @@
           })
         }
       }
-      ReactDOM.render(<App />, document.getElementById("app"))
+      ReactDOM.render(<App />, document.getElementById('app'))
     </script>
   </body>
 </html>
