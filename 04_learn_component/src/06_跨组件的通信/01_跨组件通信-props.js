@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // 1.跨组件通信 a -> b -> c 通过 props 传递
-// 展开运算: 将prop解构,和JS的三点运算符不一样
+// 展开运算: 将prop解构,和JS的展开运算符不一样
 // 你会发现: 祖先和子孙进行通信,通过props传递数据,一层一层传递非常麻烦
 export default class App extends Component {
   constructor(props) {
