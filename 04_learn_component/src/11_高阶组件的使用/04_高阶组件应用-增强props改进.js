@@ -44,6 +44,7 @@ class About extends PureComponent {
 
 class Detail extends PureComponent {
   render() {
+    console.log(this.props)
     return (
       <h2>{`Detail: 昵称:${this.props.nickname} 等级: ${this.props.level} 区域: ${this.props.region}`}</h2>
     )
@@ -53,7 +54,6 @@ class Detail extends PureComponent {
 const UserHome = withUser(Home)
 const UserAbout = withUser(About)
 const UserDetail = withUser(Detail)
-
 
 export default class App extends PureComponent {
   render() {

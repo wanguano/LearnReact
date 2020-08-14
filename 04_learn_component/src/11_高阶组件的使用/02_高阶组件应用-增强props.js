@@ -2,9 +2,7 @@ import React, { PureComponent } from 'react'
 
 // 定义高阶组件,对传递的组件进行其他操作
 function enhanceRegionProps(WrapperComponent) {
-  return props => {
-    return <WrapperComponent {...props} region="中国" />
-  }
+  return props => <WrapperComponent {...props} />
 }
 
 class Home extends PureComponent {
