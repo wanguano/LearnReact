@@ -19,6 +19,6 @@ import ReactDOM from 'react-dom'
 // import App from './11_高阶组件的使用/07_高阶组件应用-生命周期劫持-增强'
 // import './css/index.css'
 // import App from './12_组件内容补充/02_portals的使用'
-import App from './12_组件内容补充/03_fragment的使用'
+// import App from './12_组件内容补充/04_strictMode的使用'
 
 ReactDOM.render(<App name="jean" />, document.getElementById('root'))
