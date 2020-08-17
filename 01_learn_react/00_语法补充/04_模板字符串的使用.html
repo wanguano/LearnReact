@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.模板字符串的基本使用
+      const name = 'jane'
+      const age = 18
+      const message = `my name is ${name}`
+      // console.log(message)
+
+      // 2.标签模板字符串: 在模板字符串中调用函数
+      function foo(...arg) {
+        console.log(arg)
+      }
+      // foo('aaa', 'bbb', 'ccc')
+      // foo`aaa` // call function
+
+      foo`my name is ${name}, age is ${age}`
+    </script>
+  </body>
+</html>
