@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // JavaScript纯函数定义:
+      //  1.确定的输入,一定有确定的输出
+      //  2.在函数执行过程中不能产生副作用 (比如函数中传递一个对象, 在函数体中却对我传递的对象进行了修改)
+
+      // sum是一个纯函数吗? 是纯函数
+      function sum(num1, num2) {
+        return num1 + num2
+      }
+      sum(20, 30)
+      sum(20, 30)
+      sum(20, 30)
+      sum(20, 30)
+
+
+      // add函数是否是一个纯函数: 不是一个纯函数 (因为在纯函数中,不能依赖外部可以修改的数据)
+      let foo = 10
+      function add(num) {
+        return num + foo
+      }
+      add(5) // 15
+      foo = 20
+      add(5) // 25
+
+
+      // 将上面的函数改写成一个纯函数
+      // add2就是一个纯函数
+      const bar = 10
+      function add2(num) {
+        return bar + num
+      }
+      bar = 11
+
+
+      // add3是一个纯函数吗? 不是一个纯函数
+      const mgz = {count: 10}
+      function add3(num) {
+        return mgz.count + num
+      }
+      mgz.count = 20
+
+
+      // printInfo是一个纯函数吗?
+      function printInfo(info) {
+        info.name = 'wyh'
+        console.log(info.name, info.age)
+      }
+      
+      const obj = {
+      name: "why",
+      age: 18
+      }
+
+      printInfo(obj)
+      console.log(obj)
+
+
+
+
+    </script>
+  </body>
+</html>

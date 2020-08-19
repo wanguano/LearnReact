@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 // import App from './04_组件通信案例/App'
 // import App from './05_React实现slot/App'
 
-// import App from './作业/10_受控组件和非受控组件/03_受控组件_select的使用'
+import App from './作业/12_组件内容补充/03_fragment的使用'
 
 // import App from './06_跨组件的通信/04_跨组件通信-多context函数'
 // import App from './07_setState的使用/05_setState本身的合并'
@@ -21,4 +21,4 @@ import ReactDOM from 'react-dom'
 // import App from './12_组件内容补充/02_portals的使用'
 // import App from './12_组件内容补充/04_strictMode的使用'
 
-ReactDOM.render(<App name="jean" />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
