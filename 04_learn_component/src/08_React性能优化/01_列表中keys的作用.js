@@ -13,9 +13,11 @@ export default class App extends Component {
       <div>
         <h2>电影列表</h2>
         <ul>
-          {this.state.movies.map((item, index) => {
+          {
+          this.state.movies.map((item, index) => {
             return <li key={item}>{item}</li>
-          })}
+          })
+          }
         </ul>
         <button onClick={e => this.insertMovie()}>添加电影</button>
       </div>
