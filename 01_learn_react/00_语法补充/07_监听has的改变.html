@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <a href="#/home">首页</a>
+      <a href="#/about">关于</a>
+
+      <div class="router-view"></div>
+    </div>
+
+    <script>
+      /**
+       * 1.后端路由阶段
+       *  介绍:早期都是服务器将渲染好的HTML页面,响应给服务器端展示的
+       *  后端路由:
+       *    用户在浏览器切换不同url时,每次都会将后台服务器发送请求,服务器响应
+       *    后端编写的后端逻辑和对应的HTML代码会混在一起,编写和维护是非常糟糕的
+       * 2.前端路由阶段
+       *   前后端分离阶段:
+       *    随着Ajax出现,有了前后端分离的开发模式
+       *    后端只提供API来返回数据,前端通过哦Ajax获取数据,通过JS将数据渲染到页面中
+       *    并且当移动端(ios/android)出现后,后端不需要进行任何处理,依然使用之前的一套API即可
+       * 3.单页面富应用
+       *  理解:单页面富应用的英文是single-page application 简称SPA
+       *    整个Web应用程序实际上只有一个页面,当URL发生改变时,并不会从服务器请求新的静态资源
+       *    而是通过JavaScript监听URL的改变,根据URL的不同渲染新的页面
+       *  映射关系:
+       *    前端路由维护着URL和渲染页面的映射关系
+       *    路由可以根据不同的URL,最终让我们的框架(比如Vue, React, Angular)去渲染不同的组件
+       *  核心: 改变URL, 但是页面不进行整体的刷新
+       * */
+      // 监听URL的改变,根据不同URL展示不同文字
+      const routerView1 = document.querySelector('.router-view')
+      window.addEventListener('hashchange', () => {
+        switch (window.location.hash) {
+          case '#/home':
+            routerView1.innerHTML = '首页'
+            break
+          case '#/about':
+            routerView1.innerHTML = '关于页'
+            break
+          default:
+            routerView1.innerHTML = ''
+            break
+        }
+      })
+    </script>
+  </body>
+</html>

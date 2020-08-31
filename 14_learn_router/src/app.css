@@ -1,0 +1,17 @@
+a.active {
+  color: skyblue;
+  font-size: 30px;
+}
+a.link-active {
+  color: orangered;
+  font-size: 35px;
+}
+
+a.about-active {
+  color: orange;
+  font-size: 17px;
+}
+
+a {
+  margin: 10px;
+}

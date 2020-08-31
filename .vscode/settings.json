@@ -1,7 +1,12 @@
 {
   "git.ignoreLimitWarning": true,
   "editor.formatOnSave": true,
-  "cSpell.ignoreWords": [
-    "antd"
+  "cSpell.ignoreWords": ["antd"],
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "cSpell.words": [
+    "book",
+    "draf",
+    "draf book",
+    "immer"
   ]
 }
