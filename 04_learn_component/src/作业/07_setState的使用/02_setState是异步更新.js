@@ -36,3 +36,4 @@ export default class App extends Component {
     console.log(this.state.name)
   }
 }
+

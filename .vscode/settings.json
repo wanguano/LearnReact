@@ -3,6 +3,7 @@
   "editor.formatOnSave": true,
   "cSpell.ignoreWords": ["antd"],
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "cSpell.words": ["book", "draf", "draf book", "immer"],
-
+  "cSpell.words": ["book", "devtools", "draf", "draf book", "immer"]
+  // 移动光标动画效果
+  // "editor.cursorSmoothCaretAnimation": true
 }
