@@ -1,0 +1,27 @@
+/* 进入 */
+.card-enter {
+  opacity: 0;
+  transform: scale(0.6);
+}
+/* 执行动画 */
+.card-enter-active {
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 离开 */
+.card-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-exit-active {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.card-exit-done {
+  opacity: 0;
+}
