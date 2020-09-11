@@ -1,4 +1,4 @@
-import React, { useState, useCallback, memo } from 'react'
+import React, { useState, useCallback, memo, useMemo } from 'react'
 
 const JMButton = memo(props => {
   console.log('HYButton重新渲染: ', props.title)
@@ -26,6 +26,14 @@ export default function CallBackHomeDemo2() {
   const increment2 = useCallback(() => {
     console.log('increment2被调用了')
     setCount(count + 1)
+  }, [count])
+
+  const increment3 = useMemo(() => {
+    // useMemo对return的箭头函数进行保存
+    return () => {
+      console.log('increment3被调用了')
+      setCount(count + 1)
+    }
   }, [count])
 
   return (

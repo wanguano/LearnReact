@@ -11,6 +11,8 @@ import CallBackHomeDemo from './06_useCallback/01_useCallBack不能进行的性�
 import CallBackHomeDemo2 from './06_useCallback/02_useCallbac进行的性能优化'
 import MemoHookDemo1 from './07_useMemo使用/01_useMemon复杂计算的应用'
 import MemoHookDemo2 from './07_useMemo使用/02_useMenmo传入子组件应用类型'
+import RefHookDemo01 from './08_useRef/01_useRef引用DOM'
+import RefHookDemo02 from './08_useRef/02_useRef引用其他数据'
 // import MultiHookState from './02_useState使用/02_复杂状态的修改'
 // import CounterClass from './01_体验Hooks/01_counter-class'
 // import CounterHook from './01_体验Hooks/02_counter-hook'
@@ -54,7 +56,11 @@ export default function App() {
 
       {/* 7.useMemo使用 */}
       {/* <MemoHookDemo1 /> */}
-      <MemoHookDemo2 />
+      {/* <MemoHookDemo2 /> */}
+
+      {/* 8.useRef */}
+      {/* <RefHookDemo01 /> */}
+      <RefHookDemo02 />
       {/* <button onClick={() => setShow(!show)}>切换</button> */}
     </div>
   )
