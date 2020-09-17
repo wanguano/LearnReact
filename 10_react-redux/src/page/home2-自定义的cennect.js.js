@@ -11,7 +11,6 @@ class Home extends PureComponent {
         <button onClick={() => this.props.increment()}>+1</button>
         <button onClick={() => this.props.addNumber(5)}>+5</button>
         <hr />
-
       </div>
     )
   }

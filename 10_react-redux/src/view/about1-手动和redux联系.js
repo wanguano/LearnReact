@@ -2,6 +2,9 @@ import store from '../store/store'
 import React, { PureComponent } from 'react'
 import { increment, addAction } from '../store/actionCreators'
 
+// 问题: home和about组件重复的代码过多
+// 待解决: 将重复的代码
+
 export default class About extends PureComponent {
   constructor(props) {
     super(props)
