@@ -43,6 +43,7 @@ export default class About extends PureComponent {
         {/* {renderRoutes(routes[1].route)} */}
         {/* 分析:renderRoutes函数的返回值以及为什么在嵌套路由中有传递route */}
         {renderRoutes(this.props.route.route)}
+
       </div>
     )
   }
