@@ -4,6 +4,7 @@ const defaultState = {
   counter: 0,
 }
 
+
 export function reducer(state = defaultState, action) {
   switch (action.type) {
     case ADD_NUMBER:
