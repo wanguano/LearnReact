@@ -10,8 +10,10 @@ function Recommend() {
   const { topBanners } = useSelector(state => ({
     topBanners: state.recommend.topBanners,
   }))
+  // useDispatch
   const dispatch = useDispatch()
   console.log(topBanners)
+  
   return (
     <div>
       <h2>Recommend</h2>
