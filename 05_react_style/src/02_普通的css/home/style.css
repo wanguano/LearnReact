@@ -1,3 +1,11 @@
 .home > h2 {
   color: blue;
 }
+
+.title {
+  color: red;
+}
+
+.detail {
+  color: red;
+}
