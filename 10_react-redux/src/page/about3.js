@@ -3,10 +3,10 @@ import React from 'react'
 import { decrement, subAction } from '../store/actionCreators'
 import { connect } from 'react-redux'
 
-// 1.代码重构
-//    将组件间重复的进行抽取,将动态变化的如state或dispatch由props进行传递
 
 function About(props) {
+  // 当依赖的state发生改变组件会被重新渲染
+  console.log('About 组件被重新渲染')
   return (
     <div>
       <h1>About</h1>

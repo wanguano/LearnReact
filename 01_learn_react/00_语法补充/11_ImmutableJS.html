@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js"></script>
+    <script>
+      // ImmutableJS常见API
+      const im = Immutable
+      // Map 修改对象属性会返回一个新的修改后的对象结构(不会对原有数据结构产生影响)
+      //#region
+      // const info = {
+      //   name: 'kobe',
+      //   age: 30,
+      //   friend: {
+      //     name: 'james',
+      //     age: 25,
+      //   }
+      // }
+      // const infoIM = im.Map(info)
+      // const info2IM = infoIM.set('name', 'james')
+      // // 总结： 使用Map后通过set修改对象结构会产生一新的对象结构，不会对原有对象进行改变
+      // console.log(infoIM.get('name'))
+      // console.log(info2IM.get('name'))
+      //#endregion
+
+      // List 修改数组元素会返回一个新的修改后的数组结构(不会对原有数据结构产生影响)
+      // const names = ["abc", "cba", "nba"];
+      // const arr = names
+      // arr[0] = 'jane'
+      // console.log(arr)
+      // const names = ['abc', 'cba', 'nba']
+      // const namesIM = im.List(names)
+      // const newNamesIM = namesIM.set(0, 'why')
+      // console.log(namesIM.get(0))
+      // console.log(newNamesIM.get(0))
+
+      // fromJS 对JS对象、数组进行深层转换
+      const info = {
+        name: 'kobe',
+        age: 18,
+        friend: {
+          name: 'james',
+          age: 19
+        }
+      }
+      // const infoIM = im.Map(info)
+      const infoIM = im.fromJS(info)
+      console.log(infoIM.get('friend'))
+      
+
+
+
+    </script>
+  </body>
+</html>

@@ -7,7 +7,6 @@ import Profile from '../profile'
 // styled feature
 // 1.继承
 // 2.theme 共享主题
-
 const JMButton = styled.button`
   font-size: 20px;
   padding: 10px 12px;

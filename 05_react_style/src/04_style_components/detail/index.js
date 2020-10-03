@@ -14,7 +14,7 @@ export default function Detail() {
   return (
     <DetailWrapper>
       {/* css 全局引入  */}
-      <h3 className="detail">Detail</h3>
+      <h3 className="title">Detail</h3>
       {/* 当前组件引用 */}
       <div className="title">Detail info</div>
     </DetailWrapper>

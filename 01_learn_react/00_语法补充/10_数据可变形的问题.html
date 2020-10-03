@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数据可变性的问题 ImmutableJS
+      const obj1 = { name: 'jane', age: 18 }
+      const obj2 = obj1
+      obj1.name = 'kobe'
+      console.log(obj2.name) // kobe
+
+      
+    </script>
+  </body>
+</html>
